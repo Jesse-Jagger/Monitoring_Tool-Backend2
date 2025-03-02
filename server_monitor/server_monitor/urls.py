@@ -31,10 +31,11 @@ urlpatterns = [
     path('api/monitoring/', include('monitoring.urls')),
 
     # Authentication Endpoints (JWT)
-    #path('api/auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    #path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    #path('api/auth/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/auth/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
     # Redirect root URL to /api/monitoring/
-    path('', RedirectView.as_view(url='api/monitoring/')),  # Add this line
+    path('', RedirectView.as_view(url='api/monitoring/')),
+    path("api/users/", include("users.urls")),
 ]

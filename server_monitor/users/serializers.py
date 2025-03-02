@@ -6,7 +6,7 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "email", "password"]
+        fields = ["id", "username", "email", "role", "password"]
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
@@ -21,5 +21,5 @@ class LoginSerializer(serializers.Serializer):
     def validate(self, data):
         user = authenticate(username=data["username"], password=data["password"])
         if not user:
-            raise serializers.ValidationError("Invalid username or password. Kindly try again")
+            raise serializers.ValidationError("Invalid username or password. Kindly try again.")
         return {"user": user}
