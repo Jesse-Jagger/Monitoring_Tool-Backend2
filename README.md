@@ -35,18 +35,45 @@ The **Server Monitoring Website** is a web application designed to track the upt
 - Email and SMS notifications when a server is down
 - Redis caching for improved performance and reduced database queries
 
+### **4. Role-Based Permissions**
+
+The application implements Role-Based Access Control (RBAC) to ensure that users have access only to the features and data necessary for their responsibilities. Below are the permissions for each role:
+
+#### Feature Access Matrix
+
+| Features      	      |  Admin  | IT Staff | Developer | Customer Engagement | Flexipay Support| Ebanking Support |
+| ---------------------   | ------- | -------- | --------- | ------------------- | --------------- | ---------------- |
+| User Management	      |   ✅   |    ✅	|    ✅	  |         ❌	       |         ❌     |        ✅        |
+| Server Management	      |   ✅	  |    ✅    |    ✅	  |         ❌	       |         ❌     |        ✅        |
+| Real-Time Server Status |   ✅	  |    ✅	|    ✅	  |         ✅	       |         ✅     |        ✅        |
+| Server Logs	          |   ✅	  |    ✅	|    ✅	  |         ❌	       |         ❌     |        ✅        |
+| Alerts	              |   ✅	  |    ✅	|    ✅	  |         ✅	       |         ✅     |        ✅        |
+| Reports	              |   ✅	  |    ✅	|    ✅	  |         ✅	       |         ✅     |        ✅        |
+| Admin Dashboard	      |   ✅	  |    ✅	|    ✅	  |         ❌	       |         ❌     |        ✅        |
+| System Settings	      |   ✅	  |    ✅	|    ✅	  |         ❌	       |         ❌     |        ✅        |
+| API Access	          |   ✅	  |    ❌	|    ✅	  |         ❌	       |         ❌     |        ❌        |
+| Codebase Access	      |   ✅	  |    ❌	|    ✅	  |         ❌	       |         ❌     |        ❌        |
+
+#### Summary
+
+- Admins & Developers have full access to all features.
+
+- IT Staff & Ebanking Support can manage servers, logs, alerts, reports and system settings access excluding API and Codebase Access.
+
+- Customer Engagement & Flexipay Support have limited access focused on real-time monitoring and alerts.
+
 ---
 
 ## Technology Stack
 
 | Component  | Technology Used                                |
 | ---------- | ---------------------------------------------- |
-| Frontend   | React, Bootstrap, WebSockets                   |
+| Frontend   | React-Vite, Bootstrap, WebSockets                   |
 | Backend    | Django, Django REST Framework                  |
 | Database   | PostgreSQL (Production) / SQLite (Development) |
 | Task Queue | Celery                                         |
 | Caching    | Redis                                          |
-| Deployment | Docker, AWS/DigitalOcean/Vercel/Heroku         |
+| Deployment | Docker, AWS/DigitalOcean/Vercel/GCC            |
 
 ---
 

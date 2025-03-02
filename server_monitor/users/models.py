@@ -9,7 +9,6 @@ class CustomUser(AbstractUser):
         ('it_staff', 'IT Team Member'),
         ('ebanking_support', 'Ebanking Support Team Member'),
         ('customer_engagement', 'Customer Engagement Team Member')
-        ('infosec', 'Infosec Team Member')
         ('flexipay', 'Fexipay Support')
         ('user', 'User'),
     )
@@ -30,9 +29,6 @@ class CustomUser(AbstractUser):
     
     def is_flexipay(self):
         return self.role == 'flexipay'
-    
-    def is_infosec(self):
-        return self.role == 'infosec'
     
     def is_customer_engagement(self):
         return self.role == 'customer_engagement'
