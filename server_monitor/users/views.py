@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model, authenticate
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -13,6 +13,8 @@ from users.permissions import (
     IsEbankingSupport,
     IsFlexipay
 )
+
+User = get_user_model()
 
 # Register new user (Restricted to Admins, IT_Support, Developers and Ebanking_Support )
 class RegisterView(generics.CreateAPIView):

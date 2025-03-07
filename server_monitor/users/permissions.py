@@ -24,3 +24,8 @@ class IsFlexipay(BasePermission):
     """ Grants access only to Flexipay Support """
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.role == 'flexipay_support'
+    
+class IsCustomerEngagement(BasePermission):
+    """ Grants access only to Customer Engagement Team """
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.role == 'Customer_Engagement'
